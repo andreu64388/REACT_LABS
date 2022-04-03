@@ -1,0 +1,734 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+.wrapper {
+  padding: 0 15px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  right: 0;
+  background-color: aqua;
+}
+.container .navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 60px;
+}
+.container .navbar .form a {
+  background-color: black;
+  color: white;
+  padding: 10px 20px;
+  margin: 0 5px;
+}
+.container .navbar .button-menu {
+  display: none;
+}
+.container .navbar .logo {
+  font-size: 19px;
+  cursor: pointer;
+}
+.container .navbar nav ul {
+  list-style: none;
+}
+.container .navbar nav ul .basket_logo {
+  position: relative;
+}
+.container .navbar nav ul .basket_logo span {
+  position: absolute;
+  right: -18px;
+  text-align: center;
+  border-radius: 50%;
+  top: -8px;
+  width: 20px;
+  background-color: red;
+  height: 20px;
+}
+.container .navbar nav ul li {
+  margin: 0 10px;
+  display: inline-block;
+}
+
+@media (max-width: 600px) {
+  .form {
+    display: none;
+  }
+
+  .container .navbar nav {
+    display: none;
+  }
+  .container .navbar .button-menu {
+    display: block;
+  }
+}
+.card_osnova_full {
+  max-width: 230px;
+  height: 350px;
+  border-radius: 20px;
+  background-color: red;
+}
+.card_osnova_full .card {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.card_osnova_full .card .sale {
+  position: absolute;
+  right: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  text-align: center;
+  top: 10px;
+  width: 30px;
+  height: 30px;
+  background-color: red;
+  border-radius: 50%;
+}
+.card_osnova_full .card .img {
+  height: 180px;
+  background-color: green;
+  width: 100%;
+}
+.card_osnova_full .card .img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.card_osnova_full .card .text_card_template {
+  height: 130px;
+  overflow: hidden;
+  width: 100%;
+  padding: 10px;
+  background-color: rgb(86, 110, 110);
+}
+.card_osnova_full .card .text_card_template h2 {
+  text-align: center;
+}
+.card_osnova_full .card .text_card_template h3 {
+  text-align: center;
+}
+.card_osnova_full .card .button_card_read {
+  display: flex;
+}
+.card_osnova_full .card .button_card_read button {
+  padding: 8px 23px;
+  display: block;
+  height: 100%;
+  cursor: pointer;
+}
+
+.product {
+  margin-top: 65px;
+}
+.product .wrapper {
+  display: flex;
+}
+.product .wrapper .osnova_research {
+  height: 100%;
+  width: 100%;
+  background-color: rgb(110, 162, 162);
+  flex: 1;
+}
+.product .wrapper .osnova_research .categors {
+  background-color: red;
+  display: table;
+  margin: 20px auto;
+}
+.product .wrapper .osnova_research .categors button {
+  float: left;
+  cursor: pointer;
+}
+.product .wrapper .osnova_research .sorting {
+  display: flex;
+  margin: 20px 0;
+}
+.product .wrapper .osnova_research .research {
+  padding: 10px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.product .wrapper .osnova_research h1 {
+  text-align: center;
+}
+.product .wrapper .product_info {
+  flex: 3;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  row-gap: 50px;
+  -moz-column-gap: 20px;
+       column-gap: 20px;
+}
+
+@media (max-width: 1022px) {
+  .product .wrapper .product_info {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 700px) {
+  .product .wrapper .product_info {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
+@media (max-width: 453px) {
+  .product .wrapper {
+    flex-direction: column;
+  }
+  .product .wrapper .osnova_research {
+    width: 100%;
+    margin: 20px 0;
+  }
+}
+.main {
+  margin-top: 70px;
+}
+.main .text-info h1 {
+  margin: 20px 0;
+  text-align: center;
+}
+
+footer {
+  margin-top: 80px;
+  height: 50px;
+  width: 100%;
+  background-color: rgb(22, 24, 24);
+  color: white;
+}
+footer .wrapper {
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+footer .wrapper nav ul {
+  list-style: none;
+}
+footer .wrapper nav ul li {
+  margin: 0 10px;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.slider .osnova_slider {
+  max-width: 100%;
+  height: calc(100vh - 200px);
+  position: relative;
+  background-color: red;
+}
+.slider .osnova_slider img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-animation: 0.5s names ease-in-out;
+          animation: 0.5s names ease-in-out;
+}
+@-webkit-keyframes names {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes names {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.slider .osnova_slider .btn {
+  position: absolute;
+  top: 50%;
+  width: 30px;
+  height: 30px;
+  background-color: black;
+  border: none;
+  cursor: pointer;
+  color: white;
+  border-radius: 50%;
+}
+.slider .osnova_slider .btn.left {
+  left: 2%;
+}
+.slider .osnova_slider .btn.right {
+  right: 2%;
+}
+
+.nav-hidden {
+  transform: translateX(0%);
+  transition: 0.6s;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: black;
+  top: 60px;
+  z-index: 10;
+}
+.nav-hidden.what {
+  background-color: #3a4045;
+  transform: translateX(110%);
+}
+.nav-hidden .form {
+  display: table;
+  margin: 30px auto;
+}
+.nav-hidden .form a {
+  margin: 0 5px;
+  color: white;
+  padding: 10px 20px;
+  background-color: red;
+}
+.nav-hidden ul {
+  text-align: center;
+  list-style: none;
+  width: 100%;
+  margin: 0 auto;
+}
+.nav-hidden ul li {
+  outline: 2px solid white;
+  padding: 20px 10px;
+  width: 100%;
+  cursor: pointer;
+}
+.nav-hidden ul li a {
+  color: white;
+}
+
+.basket {
+  margin: 70px 0;
+}
+.basket .basket_osnova {
+  display: flex;
+}
+.basket .basket_osnova .products {
+  flex: 2;
+  height: 100%;
+}
+.basket .basket_osnova .products .bas_prod {
+  max-width: 90%;
+  background-color: rgb(129, 112, 112);
+  margin: 10px auto;
+  display: flex;
+  align-items: center;
+}
+.basket .basket_osnova .products .bas_prod .img {
+  width: 100px;
+  height: 100px;
+}
+.basket .basket_osnova .products .bas_prod .img img {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+}
+.basket .basket_osnova .table_basket {
+  flex: 1;
+}
+.basket .basket_osnova .table_basket .onsova_price_title {
+  max-width: 300px;
+  height: 300px;
+  position: relative;
+  background-color: white;
+  border: 2px solid black;
+}
+.basket .basket_osnova .table_basket .onsova_price_title .title_list {
+  background-color: rgb(221, 227, 227);
+  margin: 20px auto;
+}
+.basket .basket_osnova .table_basket .onsova_price_title .check_list {
+  width: 100%;
+  height: 200px;
+  overflow-y: auto;
+}
+.basket .basket_osnova .table_basket .onsova_price_title .byu {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+.basket .basket_osnova .table_basket .onsova_price_title .byu button {
+  width: 100%;
+  cursor: pointer;
+}
+.basket .basket_osnova .table_basket .onsova_price_title hr {
+  background-color: black;
+}
+.basket .basket_osnova .table_basket .onsova_price_title h1 {
+  border: 2px solid black;
+  text-align: center;
+}
+
+@media (max-width: 798px) {
+  .basket_osnova {
+    flex-direction: column;
+  }
+  .basket_osnova .products {
+    width: 100%;
+  }
+  .basket_osnova .table_basket {
+    margin: 40px auto;
+    width: 100%;
+  }
+}
+.register {
+  margin: 100px 0;
+}
+.register .forms {
+  padding: 10px;
+  max-width: 400px;
+  height: 400px;
+  border-radius: 30px;
+  background-color: rgb(100, 83, 83);
+}
+.register .forms .form_register {
+  background-color: black;
+  display: table;
+  margin: 0 auto;
+}
+.register .forms .form_register button:nth-child(1) {
+  padding: 10px 20px;
+  background-color: red;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+.register .forms .form_register button:nth-child(2) {
+  padding: 10px 20px;
+  background-color: green;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+.register .forms label {
+  margin: 40px auto;
+  display: block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.register .forms h1 {
+  text-align: center;
+}
+
+.fullcard {
+  margin: 100px 0;
+}
+.fullcard h1 {
+  text-align: center;
+  margin: 10px auto;
+}
+.fullcard .info_img_osnova {
+  display: flex;
+}
+.fullcard .info_img_osnova .img {
+  height: calc(100vh - 250px);
+  background-color: red;
+  flex: 1 0 260px;
+  margin: 0 10px;
+}
+.fullcard .info_img_osnova .img img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.fullcard .info_img_osnova .text {
+  margin: 0 10px;
+  background-color: rgb(221, 227, 227);
+  flex: 1 1 450px;
+  height: 100%;
+}
+
+@media (max-width: 768px) {
+  .fullcard {
+    margin: 80px auto;
+  }
+  .fullcard .info_img_osnova {
+    display: flex;
+    flex-direction: column;
+  }
+  .fullcard .info_img_osnova .img {
+    max-width: 400px;
+    width: 100%;
+    margin: 0 auto;
+  }
+  .fullcard .info_img_osnova .text {
+    height: auto;
+    max-width: 400px;
+    margin: 0 auto;
+    flex: 0;
+    width: 100%;
+  }
+}
+.comment .comment-osnova {
+  height: 400px;
+  padding: 10px;
+  background-color: aquamarine;
+  overflow-y: auto;
+}
+.comment .comment-osnova .commetn {
+  display: flex;
+  align-items: flex-start;
+}
+.comment .comment-osnova .commetn .imgs_commemt {
+  flex: 1;
+  background-color: beige;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
+.comment .comment-osnova .commetn .descrion {
+  text-align: center;
+  flex: 3;
+  height: 100%;
+  background-color: aqua;
+}
+.comment .comment-osnova .commetn .descrion p {
+  font-size: 13px;
+}
+.comment .comment-osnova .commetn .del {
+  flex: 0 2 50px;
+  height: 100%;
+  display: flex;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+}
+.comment .comment-osnova .commetn .del button {
+  height: 100%;
+  width: 100%;
+}
+.comment .comment-osnova .commetn img {
+  width: 40px;
+  background-color: black;
+  height: 40px;
+  border-radius: 50%;
+}
+.comment .bnt {
+  margin: 40px 0;
+  height: 50px;
+  margin-left: auto;
+  max-width: 400px;
+}
+.comment .bnt .btns {
+  display: flex;
+  align-items: center;
+}
+.comment .bnt .btns input {
+  padding: 10px;
+  font-size: 20px;
+  height: 100%;
+  width: 80%;
+}
+.comment .bnt .btns button {
+  padding: 19px;
+  display: block;
+  cursor: pointer;
+  border: none;
+  height: 80%;
+}
+
+@media (max-width: 606px) {
+  .comment .comment-osnova .commetn .imgs_commemt {
+    flex: 0.1;
+  }
+
+  .comment .comment-osnova .commetn .descrion {
+    height: 60px;
+    overflow: auto;
+  }
+}
+.error {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.loader {
+  border: 16px solid #f3f3f3;
+  border-radius: 50%;
+  border-top: 16px solid #1997ea;
+  width: 120px;
+  height: 120px;
+  -webkit-animation: spin 2s linear infinite;
+  /* Safari */
+  animation: spin 2s linear infinite;
+}
+
+/* Safari */
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.empty {
+  margin: 60px auto;
+  width: 90%;
+  height: 400px;
+}
+.empty p {
+  text-align: center;
+  padding: 10px 20px;
+  background-color: red;
+}
+.empty img {
+  -o-object-fit: cover;
+     object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.onsova_form {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 120033;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.onsova_form .froms {
+  background-color: #f3f3f3;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  height: 400px;
+}
+.onsova_form .froms .steps {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  background-color: red;
+}
+.onsova_form .froms .steps .step {
+  width: 30px;
+  height: 30px;
+  color: #f3f3f3;
+  background-color: black;
+  text-align: center;
+  border-radius: 50%;
+  position: relative;
+}
+.onsova_form .froms .steps .step.completet {
+  background-color: #5deb39;
+}
+.onsova_form .froms .steps .step.active {
+  background-color: yellow;
+  color: red;
+}
+.onsova_form .froms .steps .step .step_1:nth-child(2) {
+  position: absolute;
+  top: 10px;
+  height: 2px;
+  width: 110px;
+  background-color: black;
+  left: 30px;
+}
+.onsova_form .froms .steps .step .step_1 {
+  position: absolute;
+  top: 10px;
+  height: 2px;
+  width: 110px;
+  background-color: black;
+  left: 30px;
+}
+.onsova_form .froms .osnova_forms {
+  flex: 4;
+  width: 100%;
+  background-color: green;
+}
+
+.form_pages {
+  width: 400px;
+  height: 100%;
+  background-color: #1997ea;
+  text-align: center;
+}
+.form_pages.tree {
+  background-color: #5deb39;
+}
+.form_pages.two {
+  background-color: aqua;
+}
+.form_pages input {
+  border: 2px solid red;
+  padding: 10px 20px;
+  display: block;
+}
+
+.slider .osnova_slider .btn {
+  z-index: 1140;
+}
+
+.add_product {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 120033;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+.add_product .form_add {
+  width: 400px;
+  height: 400px;
+  background-color: #f3f3f3;
+  text-align: center;
+}
+.add_product .form_add h1 {
+  text-align: center;
+}/*# sourceMappingURL=App.css.map */
