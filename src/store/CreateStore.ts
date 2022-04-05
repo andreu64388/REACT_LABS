@@ -6,6 +6,7 @@ const initialState: initialTS = {
   sum: 0,
   product: Card,
   basket: [],
+  autorization: false,
 };
 
 interface DeleteComment {
@@ -54,6 +55,7 @@ const createStore = createSlice({
 
     AddUser: (state, action: PayloadAction<usersTS>) => {
       state.users = [...state.users, action.payload];
+    console.log(state.users);
     },
     DeleteComment: (state, action: PayloadAction<DeleteComment>) => {
       const newComment = state.product.map((item) => {
@@ -89,6 +91,16 @@ const createStore = createSlice({
       state.basket = [];
       state.sum = 0;
     },
+
+
+
+
+    CleanAccount: (state) => {
+      const result = state.users.map((item) => {
+          return { ...item, isLoggedIn: !item.isLoggedIn };
+      });
+      state.users = result;
+      },
     EditComment: (state, action: PayloadAction<Edit>) => {
       console.log(action.payload);
       const newComment = state.product.map((item) => {
@@ -141,6 +153,8 @@ export const {
   AddUser,
   AddComent,
   DeleteComment,
+  CleanAccount,
   EditComment,
+
 } = createStore.actions;
 export default createStore.reducer;

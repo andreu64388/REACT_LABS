@@ -761,3 +761,15 @@ footer {
     }
   }
 }
+.register_good{
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ margin: 80px 0;
+ img{
+   width: 50px;
+   height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+ }
+}

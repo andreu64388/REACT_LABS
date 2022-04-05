@@ -26,7 +26,7 @@ export interface usersTS {
   name: string;
   password: string;
   secret?: string;
-  isLoggedIn?: boolean;
+  isLoggedIn?: any;
   img?: string;
 }
 interface Basket {
@@ -40,5 +40,6 @@ export interface initialTS {
   users: usersTS[];
   sum: number;
   product: CardTS[];
+  autorization: boolean;
   basket: Basket[];
 }

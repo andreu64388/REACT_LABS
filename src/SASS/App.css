@@ -731,4 +731,18 @@ footer .wrapper nav ul li {
 }
 .add_product .form_add h1 {
   text-align: center;
+}
+
+.register_good {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 80px 0;
+}
+.register_good img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }/*# sourceMappingURL=App.css.map */
