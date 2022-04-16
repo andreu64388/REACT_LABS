@@ -1,0 +1,26 @@
+{
+  "folders": [
+	{
+		"path": "..\\..\\..\\..\\..\\1 курс\\Tollkit\\my-app"
+	},
+	{
+		"path": "..\\.."
+	},
+	{
+		"path": "..\\..\\..\\..\\..\\1 курс\\react2\\my-ap1"
+	},
+	{
+		"path": "..\\..\\..\\my-ts"
+	},
+	{
+		"path": "..\\..\\..\\..\\Сайты\\КП"
+	},
+	{
+		"path": "..\\..\\..\\..\\Сайты\\SLIDER"
+	}
+],
+  "settings": {
+    "liveServer.settings.multiRootWorkspaceName": "my-ap1",
+    "livePreview.defaultPreviewPath": "e:\\Sites\\Сайты\\9 сайт\\html\\index.html"
+  }
+}

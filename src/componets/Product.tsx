@@ -2,18 +2,41 @@ import { ChangeEvent, FC, useEffect, useState } from "react";
 import Card from "../elements/Card";
 import { useAppSelector } from "./../store/state";
 import AddProduct from "./AddProduct";
+interface Check {
+  color: string,
+  checked: boolean
+}
+const checkbox: Check[] = [
+  { color: "red", checked: false },
+  { color: "blue", checked: false },
+  { color: "green", checked: false },
+];
 const Product: FC = () => {
   const { product } = useAppSelector((state) => state.data);
   const [research, setResearch] = useState<string>("");
   const [state, setState] = useState(product);
   const [isBool, setIsBool] = useState<boolean>(false);
-  const [sortPrice, setPriceSort] = useState("");
-  const [sortYear, setsortYear] = useState("");
-  const [sortSale, setSortSale] = useState("");
-  console.log(product);
+  const [sortPrice, setPriceSort] = useState<string>("");
+  const [sortYear, setsortYear] = useState<string>("");
+  const [sortSale, setSortSale] = useState<string>("");
+  const [change, setChange] = useState<Check[]>(checkbox);
+  useEffect(() => {
+
+    if (change.map(item => item.checked).includes(true)) {
+      const productNew =
+        product.map(item => {
+          if (change.filter(item => item.checked).map(item => item.color).includes(item.color)) {
+            return item;
+          }
+        }
+        )
+      setState(productNew.filter(item => item !== undefined));
+    } else {
+      setState(product);
+    }
+  }, [change]);
 
   useEffect(() => {
-    console.log("1");
     setState(product);
   }, [product]);
 
@@ -26,9 +49,19 @@ const Product: FC = () => {
     }
   };
 
+  const handlerChangeCheckbox = (index: number) => {
+
+    setChange(
+      change.map((topping, currentIndex) =>
+        currentIndex === index
+          ? { ...topping, checked: !topping.checked }
+          : topping
+      )
+    )
+
+  }
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setPriceSort("Выбор");
-
     setSortSale("Выбор");
     if (e.target.value === "incrising") {
       setsortYear(e.target.value);
@@ -37,7 +70,6 @@ const Product: FC = () => {
     } else {
       setsortYear(e.target.value);
       const result = "year";
-
       setState([...state].sort((a, b) => a[result] - b[result]));
     }
   };
@@ -92,7 +124,6 @@ const Product: FC = () => {
               <button onClick={() => filters("iphone")}>Iphone</button>
               <button onClick={() => filters("nokia")}>Nokia</button>
             </div>
-
             <div className="sorting">
               <div className="sort_year">
                 <select value={sortYear} onChange={handleChange}>
@@ -116,10 +147,19 @@ const Product: FC = () => {
                 </select>
               </div>
             </div>
-            <div style={{ textAlign: "center" }}>
-              {" "}
+            <div>
               <button onClick={() => setIsBool(true)}>Add products</button>{" "}
             </div>
+            <h1>Выбор по цвету</h1>
+            {checkbox.map((index, i) => {
+              return (
+                <p style={{ textAlign: "center" }}>
+                  <input type="checkbox"
+                    key={i}
+                    onChange={() => handlerChangeCheckbox(i)} /> {index.color}
+                </p>
+              );
+            })}
           </div>
           {isBool && <AddProduct ChangeState={ChangeState} />}
           <div className="product_info">

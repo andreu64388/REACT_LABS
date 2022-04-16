@@ -11,6 +11,7 @@ const AddProduct: FC<AddProductProps> = ({ ChangeState }) => {
   const [year, setYear] = useState<number | string>("");
   const [sale, setSale] = useState<number | string>("");
   const [img, setImg] = useState<string>("");
+  const [color, setColor] = useState<string>("");
   const [name, setName] = useState<string>("iphone");
   const dispacth = useAppDispatch();
   const handleAddProduct = () => {
@@ -35,6 +36,7 @@ const AddProduct: FC<AddProductProps> = ({ ChangeState }) => {
         bool: false,
         price: Number(price),
         year: Number(year),
+        сolor: color,
         sale: Number(sale),
         coment: [],
       };
@@ -98,6 +100,14 @@ const AddProduct: FC<AddProductProps> = ({ ChangeState }) => {
             value={sale}
             onChange={(e: ChangeEvent<HTMLInputElement>) =>
               setSale(e.target.value)
+            }
+          />
+          <h3>color</h3>
+          <input
+            type="text"
+            value={color}
+            onChange={(e: ChangeEvent<HTMLInputElement>) =>
+              setColor(e.target.value)
             }
           />
           <h3>img</h3>

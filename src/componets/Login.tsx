@@ -11,13 +11,11 @@ const Login: FC = () => {
   const [img, setImg] = useState<string>("");
   const { users } = useAppSelector((state) => state.data);
   /* const [user, setUser] = useState(users); */
-  
- const navigate = useNavigate();
- const loacation: any = useLocation();
 
+  const navigate = useNavigate();
+  const loacation: any = useLocation();
 
- 
- const FROM = loacation.state?.from?.pathname  || "/login" || "/product"; 
+  const FROM = loacation.state?.from?.pathname || "/login" || "/product";
   const dispatch = useAppDispatch();
 
   const handleAddUser = () => {
@@ -35,26 +33,25 @@ const Login: FC = () => {
         secret: secret,
         img: img,
         id: Math.random() + 10,
-        isLoggedIn:true
+        isLoggedIn: true,
       };
       dispatch(AddUser(newUSER));
 
-  navigate(FROM);
+      navigate(FROM);
       setName("");
       setPassword("");
       setSecret("");
       setImg("");
     }
   };
-   
-    const handleExit = () => {
-      dispatch(CleanAccount());
-      navigate("/register");
-    };
+
+  const handleExit = () => {
+    dispatch(CleanAccount());
+    navigate("/register");
+  };
   return (
     <>
-      {(users.length === 0) || (users[0].isLoggedIn === false)  
-      ? (
+      {users.length === 0 || users[0].isLoggedIn === false ? (
         <div className="register">
           <div className="wrapper">
             <div className="forms">
@@ -114,6 +111,7 @@ const Login: FC = () => {
         </div>
       ) : (
         <div className="register_good">
+       
           <div>
             <h3>Аккаунт:</h3>
             {users.map((user) => (
@@ -121,7 +119,7 @@ const Login: FC = () => {
                 <p>Name: {user.name}</p>
                 <p>Secret: {user.secret}</p>
                 <img src={user.img} alt="img" />
-                <button  onClick={handleExit}>Выйти</button>
+                <button onClick={handleExit}>Выйти</button>
               </div>
             ))}
           </div>

@@ -106,7 +106,7 @@ const ProductFull: FC = () => {
               <div className="comment">
                 <div className="wrapper">
                   <div className="comment-osnova">
-                    {coment.map((i: any) => {
+                    {coment?.map((i: any) => {
                       const { descriotion, name, img, date } = i;
                       return (
                         <div
@@ -121,7 +121,6 @@ const ProductFull: FC = () => {
                             <div className="text">
                               <p>name:{name}</p>
                               <p>date:{date.toLocaleTimeString()}</p>
-                              {/*         <p>time:{date.toLocaleTimeString()}</p> */}
                             </div>
                           </div>
                           <div className="descrion">
@@ -149,7 +148,7 @@ const ProductFull: FC = () => {
                             <button
                               onClick={() => handleEdit(date, descriotion)}
                             >
-                              Edit{" "}
+                              Edit
                             </button>
                             <button
                               onClick={() => handleDelete(id, descriotion)}
@@ -164,7 +163,9 @@ const ProductFull: FC = () => {
                   {users.length !== 0 && (
                     <div>
                       <h3>Аккаунт:</h3>
-                      {users[0].name}
+                      <img src={users[0].img} style={{ width: 50, height: 50, borderRadius: "50%" }} alt="" />
+                      {users[0].name
+                      }
                     </div>
                   )}
                   <div className="bnt">

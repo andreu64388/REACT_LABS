@@ -1,6 +1,5 @@
-
-import { CardTS } from './../interface/interface';
-export const Card : CardTS[]  = [
+import { CardTS } from "./../interface/interface";
+export const Card: CardTS[] = [
   {
     count: 1,
     title: "Iphone 10",
@@ -13,7 +12,7 @@ export const Card : CardTS[]  = [
     price: 100,
     year: 2029,
     sale: 45,
-
+    color: "red",
     coment: [],
   },
   {
@@ -27,6 +26,7 @@ export const Card : CardTS[]  = [
     bool: false,
     price: 200,
     year: 2043,
+    color: "red",
     sale: 90,
     coment: [],
   },
@@ -42,6 +42,7 @@ export const Card : CardTS[]  = [
     price: 300,
     year: 2021,
     sale: 79,
+    color: "green",
     coment: [],
   },
   {
@@ -55,6 +56,7 @@ export const Card : CardTS[]  = [
     bool: false,
     price: 400,
     year: 2022,
+    color: "blue",
     sale: 32,
     coment: [],
   },
@@ -69,6 +71,7 @@ export const Card : CardTS[]  = [
     bool: false,
     price: 500,
     year: 2021,
+    color: "green",
     sale: 80,
     coment: [],
   },
@@ -83,6 +86,7 @@ export const Card : CardTS[]  = [
     bool: false,
     price: 24,
     year: 2018,
+    color: "red",
     sale: 3,
     coment: [],
   },
@@ -99,6 +103,7 @@ export const Card : CardTS[]  = [
     year: 2017,
     sale: 10,
     coment: [],
+    color: "red",
   },
   {
     count: 1,
@@ -110,12 +115,14 @@ export const Card : CardTS[]  = [
     img: "https://www.360fiyat.com/wp-content/uploads/2021/03/Nokia-2.2-4-2048x2048.jpg",
     bool: false,
     price: 299,
+
+    color: "red",
     year: 2009,
     coment: [],
     sale: 30,
   },
   {
-    count:1,
+    count: 1,
     id: "9",
     title: "Nokia A89",
     name: "nokia",
@@ -126,12 +133,12 @@ export const Card : CardTS[]  = [
     price: 299,
     year: 2019,
     coment: [],
+    color: "blue",
     sale: 20,
   },
 ];
 
-  
-export const IMGS_SLIDER:Array<string> = [
+export const IMGS_SLIDER: Array<string> = [
   "https://postila.ru/data/64/e5/26/7b/64e5267b1dd463c6203fd5f5e29af6c0b6989ddd8b03a4ecba90f78365944350.jpg",
   "https://fotorelax.ru/wp-content/uploads/2016/02/Pictures-of-butterflies-16.jpg",
   "https://proprikol.ru/wp-content/uploads/2019/12/krasivye-kartinki-pro-zimu-2.jpg",

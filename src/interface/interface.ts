@@ -14,6 +14,7 @@ export interface CardTS {
   desription: string;
   img: string;
   bool: boolean;
+  color?: string;
   price: number;
   year: number;
   sale: number;
@@ -39,7 +40,7 @@ interface Basket {
 export interface initialTS {
   users: usersTS[];
   sum: number;
-  product: CardTS[];
-  autorization: boolean;
+  product: CardTS[] | any[] ; 
+  autorization: boolean ;
   basket: Basket[];
 }

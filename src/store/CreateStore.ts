@@ -55,7 +55,7 @@ const createStore = createSlice({
 
     AddUser: (state, action: PayloadAction<usersTS>) => {
       state.users = [...state.users, action.payload];
-    console.log(state.users);
+      console.log(state.users);
     },
     DeleteComment: (state, action: PayloadAction<DeleteComment>) => {
       const newComment = state.product.map((item) => {
@@ -63,7 +63,7 @@ const createStore = createSlice({
           console.log(action.payload);
           return {
             ...item,
-            coment: item.coment.filter(function (item: Comment) {
+            coment: item.coment?.filter(function (item: Comment) {
               return item.descriotion !== action.payload.descriotion;
             }),
           };
@@ -73,7 +73,7 @@ const createStore = createSlice({
       });
       state.product = newComment;
     },
-    AddComent: (state, action: PayloadAction<Comment>) => {
+    AddComent: (state, action: PayloadAction<any>) => {
       const result = state.product.map((item) => {
         if (item.id === action.payload.id) {
           return { ...item, coment: [...item.coment, action.payload] };
@@ -92,15 +92,12 @@ const createStore = createSlice({
       state.sum = 0;
     },
 
-
-
-
     CleanAccount: (state) => {
       const result = state.users.map((item) => {
-          return { ...item, isLoggedIn: !item.isLoggedIn };
+        return { ...item, isLoggedIn: !item.isLoggedIn };
       });
       state.users = result;
-      },
+    },
     EditComment: (state, action: PayloadAction<Edit>) => {
       console.log(action.payload);
       const newComment = state.product.map((item) => {
@@ -155,6 +152,5 @@ export const {
   DeleteComment,
   CleanAccount,
   EditComment,
-
 } = createStore.actions;
 export default createStore.reducer;
