@@ -1,16 +1,9 @@
 import { ChangeEvent, FC, useEffect, useState } from "react";
+import { checkbox } from "../assets/assets";
 import Card from "../elements/Card";
 import { useAppSelector } from "./../store/state";
 import AddProduct from "./AddProduct";
-interface Check {
-  color: string,
-  checked: boolean
-}
-const checkbox: Check[] = [
-  { color: "red", checked: false },
-  { color: "blue", checked: false },
-  { color: "green", checked: false },
-];
+import { Check } from './../assets/assets';
 const Product: FC = () => {
   const { product } = useAppSelector((state) => state.data);
   const [research, setResearch] = useState<string>("");
@@ -20,11 +13,11 @@ const Product: FC = () => {
   const [sortYear, setsortYear] = useState<string>("");
   const [sortSale, setSortSale] = useState<string>("");
   const [change, setChange] = useState<Check[]>(checkbox);
+  const [option, setOption] = useState<any[]>(product);
   useEffect(() => {
-
     if (change.map(item => item.checked).includes(true)) {
       const productNew =
-        product.map(item => {
+        option.map(item => {
           if (change.filter(item => item.checked).map(item => item.color).includes(item.color)) {
             return item;
           }
@@ -32,7 +25,8 @@ const Product: FC = () => {
         )
       setState(productNew.filter(item => item !== undefined));
     } else {
-      setState(product);
+      setOption(option);
+      setState(option);
     }
   }, [change]);
 
@@ -43,14 +37,18 @@ const Product: FC = () => {
   const filters = (n: any) => {
     if (n === product) {
       setState(product);
+      setOption(product)
     } else {
       const newDa = product.filter((x) => x.name === n);
+      setOption(newDa)
       setState(newDa);
+
     }
+    setChange(change.map(item => {
+      return { ...item, checked: false }
+    }))
   };
-
   const handlerChangeCheckbox = (index: number) => {
-
     setChange(
       change.map((topping, currentIndex) =>
         currentIndex === index
@@ -58,7 +56,6 @@ const Product: FC = () => {
           : topping
       )
     )
-
   }
   const handleChange = (e: ChangeEvent<HTMLSelectElement>) => {
     setPriceSort("Выбор");
@@ -73,7 +70,6 @@ const Product: FC = () => {
       setState([...state].sort((a, b) => a[result] - b[result]));
     }
   };
-
   const handleChangePrice = (e: ChangeEvent<HTMLSelectElement>) => {
     setSortSale("Выбор");
     setsortYear("Выбор");
@@ -88,7 +84,6 @@ const Product: FC = () => {
       setState([...state].sort((a, b) => a[result] - b[result]));
     }
   };
-
   const handleChangeSale = (e: ChangeEvent<HTMLSelectElement>) => {
     setPriceSort("Выбор");
     setsortYear("Выбор");
@@ -119,7 +114,7 @@ const Product: FC = () => {
               />
             </div>
             <div className="categors">
-              <button onClick={() => filters(product)}>All</button>
+              <button className="" onClick={() => filters(product)}>All</button>
               <button onClick={() => filters("sumsung")}>Sumsung</button>
               <button onClick={() => filters("iphone")}>Iphone</button>
               <button onClick={() => filters("nokia")}>Nokia</button>
@@ -156,6 +151,7 @@ const Product: FC = () => {
                 <p style={{ textAlign: "center" }}>
                   <input type="checkbox"
                     key={i}
+                    checked={change[i].checked}
                     onChange={() => handlerChangeCheckbox(i)} /> {index.color}
                 </p>
               );

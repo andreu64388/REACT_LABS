@@ -144,3 +144,16 @@ export const IMGS_SLIDER: Array<string> = [
   "https://proprikol.ru/wp-content/uploads/2019/12/krasivye-kartinki-pro-zimu-2.jpg",
   "https://i.ucrazy.ru/files/i/2010.11.9/1289239709_70.jpg",
 ];
+
+export interface Check {
+  color: string,
+  checked: boolean
+}
+export const checkbox: Check[] = [
+  { color: "red", checked: false },
+  { color: "blue", checked: false },
+  { color: "green", checked: false },
+];
+const name = [
+  
+]
